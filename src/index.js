@@ -9,3 +9,6 @@ document.getElementById("app").innerHTML = `
   JSからも変更できる。
 </div>
 `;
+const var1 = "aaaa";
+console.log(var1);
+
