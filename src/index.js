@@ -14,7 +14,33 @@ const onclickAdd = () => {
   const compbutton = document.createElement("button");
   compbutton.innerText = "完了";
   compbutton.addEventListener("click", () => {
-    alert();
+    const addtaeget = compbutton.parentNode; //取得
+    //親のdivを削除する
+    deldicfromincomplist(addtaeget); //関数で削除
+
+    //conp-listに追加する
+    //追加するテキストを親から取得
+    const addtargettext = addtaeget.firstElementChild.innerText;
+    console.log(addtargettext);
+    //初期化
+    addtaeget.textContent = null;
+    //divの作成
+    //const div = document.createElement("div");
+    //div.className = "list-row";
+    //li の作成
+    const li = document.createElement("li");
+    li.innerText = addtargettext;
+    //button(戻す)  の作成
+    const backbutton = document.createElement("button");
+    backbutton.innerText = "削除";
+    backbutton.addEventListener("click", () => {
+      alert();
+    });
+    //divの子要素にli,button
+    addtaeget.appendChild(li);
+    addtaeget.appendChild(backbutton);
+    //conp-listにdiv追加
+    document.getElementById("conp-list").appendChild(addtaeget);
   });
 
   //button(削除)  の作成
@@ -23,7 +49,8 @@ const onclickAdd = () => {
   delbutton.addEventListener("click", () => {
     //親のdivを削除する
     const deltaeget = delbutton.parentNode; //取得
-    document.getElementById("inconp-list").removeChild(deltaeget); //親が入ってるlistからremove
+    deldicfromincomplist(deltaeget); //関数で削除
+    //document.getElementById("inconp-list").removeChild(deltaeget); //親が入ってるlistからremove
   });
 
   //divの子要素にli,button
@@ -39,6 +66,10 @@ const onclickAdd = () => {
 document
   .getElementById("add-button")
   .addEventListener("click", () => onclickAdd());
+//未完了リストからtargetを削除
+const deldicfromincomplist = (deltaeget) => {
+  document.getElementById("inconp-list").removeChild(deltaeget); //親が入ってるlistからremove
+};
 
 // document.getElementById("app").innerHTML = `
 // <h1>Hello Vanilla!</h1>
