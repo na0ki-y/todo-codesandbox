@@ -177,8 +177,35 @@ module.hot.accept(reloadCSS);
 
 require("./styles.css");
 document.getElementById("app").innerHTML = "\n<h1>Hello Vanilla!</h1>\n<div>\n  We use the same configuration as Parcel to bundle this sandbox, you can find more\n  info about Parcel \n  <a href=\"https://parceljs.org\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.\n  JS\u304B\u3089\u3082\u5909\u66F4\u3067\u304D\u308B\u3002\n</div>\n";
+var v = "1";
 var var1 = "aaaa";
 console.log(var1);
+var name = "Alice";
+var age = 20;
+// テンプレート文字列
+var m1 = "名前は" + name + "年齢は" + age;
+console.log(m1);
+var m2 = "\u540D\u524D\u306F".concat(name, "\u5E74\u9F62\u306F").concat(age);
+console.log(m2);
+
+// アロー関数
+
+function func1(str) {
+  return str;
+}
+var func11 = function func11(str) {
+  return str;
+};
+console.log(func1("func1です"));
+console.log(func11("func11です"));
+var func2 = function func2(s) {
+  return s;
+};
+console.log(func2("func2です"));
+var add_my = function add_my(a, b) {
+  return a + b;
+};
+console.log(add_my(10, 20));
 },{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
