@@ -177,7 +177,15 @@ module.hot.accept(reloadCSS);
 
 require("./styles.css");
 var _console;
-document.getElementById("app").innerHTML = "\n<h1>Hello Vanilla!</h1>\n<div>\n  We use the same configuration as Parcel to bundle this sandbox, you can find more\n  info about Parcel \n  <a href=\"https://parceljs.org\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.\n  JS\u304B\u3089\u3082\u5909\u66F4\u3067\u304D\u308B\u3002\n</div>\n";
+// document.getElementById("app").innerHTML = `
+// <h1>Hello Vanilla!</h1>
+// <div>
+//   We use the same configuration as Parcel to bundle this sandbox, you can find more
+//   info about Parcel
+//   <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
+//   JSからも変更できる。
+// </div>
+// `;
 var v = "1";
 var var1 = "aaaa";
 console.log(var1);

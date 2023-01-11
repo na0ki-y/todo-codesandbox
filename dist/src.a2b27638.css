@@ -1,6 +1,78 @@
 body {
   font-family: sans-serif;
 }
+/* すべてのinputに対して */
+input {
+  /* 角とる */
+  border-radius: 8px;
+  /* 枠線 */
+  border: none;
+  padding: 6px 16px;
+  outline: none;
+}
+button {
+  /* 角とる */
+  border-radius: 8px;
+  /* 枠線 */
+  border: none;
+  padding: 6px 5px;
+  margin: 2px;
+}
+/* 選択したとき */
+button:hover {
+  background-color: #ff7fff;
+  color: #fff;
+  cursor: pointer;
+}
+li {
+  margin-right: 8px;
+}
+.input {
+  background-color: aqua;
+  width: 400px;
+  height: 30px;
+  /* 内側 */
+  padding: 8px;
+  /* 外側 */
+  margin: 9px;
+  /* 角とる */
+  border-radius: 8px;
+}
+.imcomp {
+  background-color: #ffffe0;
+  width: 400px;
+  /* 可変 */
+  min-height: 200px;
+  /* 内側 */
+  padding: 8px;
+  /* 外側 */
+  margin: 9px;
+  /* 角とる */
+  border-radius: 8px;
+}
+.comp {
+  background-color: #c6ffe2;
+  width: 400px;
+  min-height: 200px;
+  /* 内側 */
+  padding: 8px;
+  /* 外側 */
+  margin: 9px;
+  /* 角とる */
+  border-radius: 8px;
+}
+.title {
+  text-align: center;
+  margin-top: 0px;
+  font-weight: bold;
+  color: #666;
+}
+/* 整列　項目とボタンの */
+.list-row {
+  display: flex;
+  align-items: center;
+  padding-bottom: 4px;
+}
 
 
 /*# sourceMappingURL=/src.a2b27638.css.map */
