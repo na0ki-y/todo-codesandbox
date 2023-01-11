@@ -199,7 +199,9 @@ var onclickAdd = function onclickAdd() {
   var delbutton = document.createElement("button");
   delbutton.innerText = "削除";
   delbutton.addEventListener("click", function () {
-    alert();
+    //親のdivを削除する
+    var deltaeget = delbutton.parentNode; //取得
+    document.getElementById("inconp-list").removeChild(deltaeget); //親が入ってるlistからremove
   });
 
   //divの子要素にli,button
