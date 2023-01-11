@@ -1,4 +1,42 @@
 import "./styles.css";
+const onclickAdd = () => {
+  // 取得と初期化
+  const inputtext = document.getElementById("add-text").value; //取得
+  document.getElementById("add-text").value = ""; //初期化
+  // DOMを作成して差し込んでく
+  //divの作成
+  const div = document.createElement("div");
+  div.className = "list-row";
+  //li の作成
+  const li = document.createElement("li");
+  li.innerText = inputtext;
+  //button(完了)  の作成
+  const compbutton = document.createElement("button");
+  compbutton.innerText = "完了";
+  compbutton.addEventListener("click", () => {
+    alert();
+  });
+
+  //button(削除)  の作成
+  const delbutton = document.createElement("button");
+  delbutton.innerText = "削除";
+  delbutton.addEventListener("click", () => {
+    alert();
+  });
+
+  //divの子要素にli,button
+  div.appendChild(li);
+  div.appendChild(compbutton);
+  div.appendChild(delbutton);
+  console.log(div);
+
+  //inconp-listにdiv追加
+  document.getElementById("inconp-list").appendChild(div);
+};
+// ボタンid(add_button)と関数を対応させる
+document
+  .getElementById("add-button")
+  .addEventListener("click", () => onclickAdd());
 
 // document.getElementById("app").innerHTML = `
 // <h1>Hello Vanilla!</h1>
