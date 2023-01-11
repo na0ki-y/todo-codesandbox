@@ -206,6 +206,27 @@ var add_my = function add_my(a, b) {
   return a + b;
 };
 console.log(add_my(10, 20));
+var myprof = {
+  name_ob: "Alce",
+  age_ob: 90
+};
+console.log("\u540D\u524D\u306F".concat(myprof.name));
+var name_ob = myprof.name_ob,
+  age_ob = myprof.age_ob; //keyと同じ名前
+console.log("\u540D\u524D\u306F".concat(name_ob, "\u5E74\u9F62\u306F").concat(age_ob));
+var myporf2 = ["Alice", 99];
+var name_l = myporf2[0],
+  age_l = myporf2[1]; //順番に
+console.log("\u540D\u524D\u306F".concat(name_l, "\u5E74\u9F62\u306F").concat(age_l));
+
+//defalut
+
+var print_name = function print_name() {
+  var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "ゲスト";
+  console.log("\u3053\u3093\u306B\u3061\u306F".concat(name));
+};
+print_name("Bob");
+print_name();
 },{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

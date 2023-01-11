@@ -40,3 +40,23 @@ const add_my = (a, b) => {
   return a + b;
 };
 console.log(add_my(10, 20));
+
+const myprof = {
+  name_ob: "Alce",
+  age_ob: 90,
+};
+console.log(`名前は${myprof.name}`);
+const { name_ob, age_ob } = myprof; //keyと同じ名前
+console.log(`名前は${name_ob}年齢は${age_ob}`);
+
+const myporf2 = ["Alice", 99];
+const [name_l, age_l] = myporf2; //順番に
+console.log(`名前は${name_l}年齢は${age_l}`);
+
+//defalut
+
+const print_name = (name = "ゲスト") => {
+  console.log(`こんにちは${name}`);
+};
+print_name("Bob");
+print_name();
