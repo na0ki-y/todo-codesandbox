@@ -256,6 +256,64 @@ var arr6 = [].concat(arr4); //copy deep
 var arr7 = [].concat(arr4, arr5); //copy deep
 console.log(arr6);
 console.log(arr7);
+
+//map filter
+var namearr = ["alice", "bob", "zoe"];
+for (var i = 0; i < namearr.length; i++) {
+  console.log(namearr[i]);
+}
+var namearr2 = namearr.map(function (name) {
+  return name;
+});
+console.log(namearr2);
+namearr.map(function (name, index) {
+  console.log("".concat(index, " ").concat(name)); //第2引数がindex
+});
+
+var numarr = [1, 2, 3, 4, 5];
+var numarr2 = numarr.filter(function (num) {
+  return num % 2 == 0; //returnで条件を書く
+});
+
+console.log(numarr2);
+var newNamearr = namearr.map(function (name) {
+  if (name == "bob") {
+    return name + "-san";
+  } else {
+    return name;
+  }
+});
+console.log(newNamearr);
+
+//3項演算子
+var vval1 = 2000;
+var vval2 = vval1 > 10 ? "true" : "false";
+console.log(vval2);
+console.log(vval1.toLocaleString());
+var vval3 = "2000";
+// const vval3 = 2000;
+var check = typeof vval3 == "number" ? vval3.toLocaleString() : "数値を入力して";
+console.log(check);
+var checksum = function checksum(a, b) {
+  return a + b > 100 ? "100\u3092\u8D85\u3048\u3066\u3044\u307E\u3059".concat(a + b) : "100\u3092\u8D85\u3048\u3066\u3044\u307E\u305B\u3093".concat(a + b);
+};
+console.log(checksum(10, 20));
+console.log(checksum(90, 20));
+var f1 = true;
+var f2 = false;
+if (f1 || f2) {
+  console.log("または"); //または＝左がfalseのときに右を返す
+}
+
+if (f1 && f2) {
+  console.log("かつ");
+}
+var f3 = null;
+var fee = f3 || "未設定です"; //または＝左がfalseのときに右を返す
+console.log(fee);
+var f4 = 100;
+var fee2 = f4 && "なにか設定"; //または＝左がTrueのときに右を返す
+console.log(fee2);
 },{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
