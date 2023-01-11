@@ -17,30 +17,10 @@ const onclickAdd = () => {
     const addtaeget = compbutton.parentNode; //取得
     //親のdivを削除する
     deldicfromincomplist(addtaeget); //関数で削除
-
-    //conp-listに追加する
     //追加するテキストを親から取得
     const addtargettext = addtaeget.firstElementChild.innerText;
-    console.log(addtargettext);
-    //初期化
-    addtaeget.textContent = null;
-    //divの作成
-    //const div = document.createElement("div");
-    //div.className = "list-row";
-    //li の作成
-    const li = document.createElement("li");
-    li.innerText = addtargettext;
-    //button(戻す)  の作成
-    const backbutton = document.createElement("button");
-    backbutton.innerText = "削除";
-    backbutton.addEventListener("click", () => {
-      alert();
-    });
-    //divの子要素にli,button
-    addtaeget.appendChild(li);
-    addtaeget.appendChild(backbutton);
-    //conp-listにdiv追加
-    document.getElementById("conp-list").appendChild(addtaeget);
+    //conp-listに追加する
+    addcomplist(addtargettext);
   });
 
   //button(削除)  の作成
@@ -70,7 +50,26 @@ document
 const deldicfromincomplist = (deltaeget) => {
   document.getElementById("inconp-list").removeChild(deltaeget); //親が入ってるlistからremove
 };
-
+//完了リストに追加
+const addcomplist = (name) => {
+  //divの作成
+  const div = document.createElement("div");
+  div.className = "list-row";
+  //li の作成
+  const li = document.createElement("li");
+  li.innerText = name;
+  //button(戻す)  の作成
+  const backbutton = document.createElement("button");
+  backbutton.innerText = "削除";
+  backbutton.addEventListener("click", () => {
+    alert();
+  });
+  //divの子要素にli,button
+  div.appendChild(li);
+  div.appendChild(backbutton);
+  //conp-listにdiv追加
+  document.getElementById("conp-list").appendChild(div);
+};
 // document.getElementById("app").innerHTML = `
 // <h1>Hello Vanilla!</h1>
 // <div>
