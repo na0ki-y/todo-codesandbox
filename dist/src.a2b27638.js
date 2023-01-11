@@ -177,23 +177,41 @@ module.hot.accept(reloadCSS);
 
 require("./styles.css");
 var _console;
+//クリックしたときには取得して初期化、未完了に追加
 var onclickAdd = function onclickAdd() {
   // 取得と初期化
   var inputtext = document.getElementById("add-text").value; //取得
   document.getElementById("add-text").value = ""; //初期化
+  addincomplist(inputtext);
+};
+// ボタンid(add_button)と関数を対応させる
+document.getElementById("add-button").addEventListener("click", function () {
+  return onclickAdd();
+});
+
+//未完了リストからtargetを削除
+var deldicfromincomplist = function deldicfromincomplist(deltaeget) {
+  document.getElementById("inconp-list").removeChild(deltaeget); //親が入ってるlistからremove
+};
+//完了リストからtargetを削除
+var deldicfromcomplist = function deldicfromcomplist(deltaeget) {
+  document.getElementById("conp-list").removeChild(deltaeget); //親が入ってるlistからremove
+};
+//未完了リストに追加
+var addincomplist = function addincomplist(name) {
   // DOMを作成して差し込んでく
   //divの作成
   var div = document.createElement("div");
   div.className = "list-row";
   //li の作成
   var li = document.createElement("li");
-  li.innerText = inputtext;
+  li.innerText = name;
   //button(完了)  の作成
   var compbutton = document.createElement("button");
   compbutton.innerText = "完了";
   compbutton.addEventListener("click", function () {
     var addtaeget = compbutton.parentNode; //取得
-    //親のdivを削除する
+    //未完了から親のdivを削除する
     deldicfromincomplist(addtaeget); //関数で削除
     //追加するテキストを親から取得
     var addtargettext = addtaeget.firstElementChild.innerText;
@@ -205,29 +223,19 @@ var onclickAdd = function onclickAdd() {
   var delbutton = document.createElement("button");
   delbutton.innerText = "削除";
   delbutton.addEventListener("click", function () {
-    //親のdivを削除する
+    //未完了から親のdivを削除する
     var deltaeget = delbutton.parentNode; //取得
     deldicfromincomplist(deltaeget); //関数で削除
-    //document.getElementById("inconp-list").removeChild(deltaeget); //親が入ってるlistからremove
   });
 
   //divの子要素にli,button
   div.appendChild(li);
   div.appendChild(compbutton);
   div.appendChild(delbutton);
-  console.log(div);
-
   //inconp-listにdiv追加
   document.getElementById("inconp-list").appendChild(div);
 };
-// ボタンid(add_button)と関数を対応させる
-document.getElementById("add-button").addEventListener("click", function () {
-  return onclickAdd();
-});
-//未完了リストからtargetを削除
-var deldicfromincomplist = function deldicfromincomplist(deltaeget) {
-  document.getElementById("inconp-list").removeChild(deltaeget); //親が入ってるlistからremove
-};
+
 //完了リストに追加
 var addcomplist = function addcomplist(name) {
   //divの作成
@@ -238,9 +246,15 @@ var addcomplist = function addcomplist(name) {
   li.innerText = name;
   //button(戻す)  の作成
   var backbutton = document.createElement("button");
-  backbutton.innerText = "削除";
+  backbutton.innerText = "戻す";
   backbutton.addEventListener("click", function () {
-    alert();
+    var addtaeget = backbutton.parentNode; //取得
+    //完了から親のdivを削除する
+    deldicfromcomplist(addtaeget); //関数で削除
+    //追加するテキストを親から取得
+    var addtargettext = addtaeget.firstElementChild.innerText;
+    //conp-listに追加する
+    addincomplist(addtargettext);
   });
   //divの子要素にli,button
   div.appendChild(li);
