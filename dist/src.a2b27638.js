@@ -176,6 +176,7 @@ module.hot.accept(reloadCSS);
 "use strict";
 
 require("./styles.css");
+var _console;
 document.getElementById("app").innerHTML = "\n<h1>Hello Vanilla!</h1>\n<div>\n  We use the same configuration as Parcel to bundle this sandbox, you can find more\n  info about Parcel \n  <a href=\"https://parceljs.org\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.\n  JS\u304B\u3089\u3082\u5909\u66F4\u3067\u304D\u308B\u3002\n</div>\n";
 var v = "1";
 var var1 = "aaaa";
@@ -227,6 +228,34 @@ var print_name = function print_name() {
 };
 print_name("Bob");
 print_name();
+
+//スプレッド
+var arr1 = [10, 20];
+console.log(arr1);
+(_console = console).log.apply(_console, arr1); //展開
+
+var sum_my = function sum_my(a, b) {
+  console.log(a + b);
+};
+sum_my(10, 20);
+sum_my.apply(void 0, arr1);
+var arr2 = [1, 2, 3, 4, 5];
+var c1 = arr2[0],
+  c2 = arr2[1],
+  c3 = arr2[2],
+  c4 = arr2[3],
+  c5 = arr2[4];
+console.log(c1, c2, c3);
+var cc1 = arr2[0],
+  cc2 = arr2[1],
+  cclist = arr2.slice(2); //まとめる　分割代入の結果を
+console.log(cc1, cc2, cclist);
+var arr4 = [10, 20];
+var arr5 = [20, 40];
+var arr6 = [].concat(arr4); //copy deep
+var arr7 = [].concat(arr4, arr5); //copy deep
+console.log(arr6);
+console.log(arr7);
 },{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

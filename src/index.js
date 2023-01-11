@@ -60,3 +60,27 @@ const print_name = (name = "ゲスト") => {
 };
 print_name("Bob");
 print_name();
+
+//スプレッド
+const arr1 = [10, 20];
+console.log(arr1);
+console.log(...arr1); //展開
+
+const sum_my = (a, b) => {
+  console.log(a + b);
+};
+sum_my(10, 20);
+sum_my(...arr1);
+
+const arr2 = [1, 2, 3, 4, 5];
+const [c1, c2, c3, c4, c5] = arr2;
+console.log(c1, c2, c3);
+const [cc1, cc2, ...cclist] = arr2; //まとめる　分割代入の結果を
+console.log(cc1, cc2, cclist);
+
+const arr4 = [10, 20];
+const arr5 = [20, 40];
+const arr6 = [...arr4]; //copy deep
+const arr7 = [...arr4, ...arr5]; //copy deep
+console.log(arr6);
+console.log(arr7);
