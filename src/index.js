@@ -1,14 +1,98 @@
 import "./styles.css";
+//クリックしたときには取得して初期化、未完了に追加
+const onclickAdd = () => {
+  // 取得と初期化
+  const inputtext = document.getElementById("add-text").value; //取得
+  document.getElementById("add-text").value = ""; //初期化
+  addincomplist(inputtext);
+};
+// ボタンid(add_button)と関数を対応させる
+document
+  .getElementById("add-button")
+  .addEventListener("click", () => onclickAdd());
 
-document.getElementById("app").innerHTML = `
-<h1>Hello Vanilla!</h1>
-<div>
-  We use the same configuration as Parcel to bundle this sandbox, you can find more
-  info about Parcel 
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
-  JSからも変更できる。
-</div>
-`;
+//未完了リストからtargetを削除
+const deldicfromincomplist = (deltaeget) => {
+  document.getElementById("inconp-list").removeChild(deltaeget); //親が入ってるlistからremove
+};
+//完了リストからtargetを削除
+const deldicfromcomplist = (deltaeget) => {
+  document.getElementById("conp-list").removeChild(deltaeget); //親が入ってるlistからremove
+};
+//未完了リストに追加
+const addincomplist = (name) => {
+  // DOMを作成して差し込んでく
+  //divの作成
+  const div = document.createElement("div");
+  div.className = "list-row";
+  //li の作成
+  const li = document.createElement("li");
+  li.innerText = name;
+  //button(完了)  の作成
+  const compbutton = document.createElement("button");
+  compbutton.innerText = "完了";
+  compbutton.addEventListener("click", () => {
+    const addtaeget = compbutton.parentNode; //取得
+    //未完了から親のdivを削除する
+    deldicfromincomplist(addtaeget); //関数で削除
+    //追加するテキストを親から取得
+    const addtargettext = addtaeget.firstElementChild.innerText;
+    //conp-listに追加する
+    addcomplist(addtargettext);
+  });
+
+  //button(削除)  の作成
+  const delbutton = document.createElement("button");
+  delbutton.innerText = "削除";
+  delbutton.addEventListener("click", () => {
+    //未完了から親のdivを削除する
+    const deltaeget = delbutton.parentNode; //取得
+    deldicfromincomplist(deltaeget); //関数で削除
+  });
+
+  //divの子要素にli,button
+  div.appendChild(li);
+  div.appendChild(compbutton);
+  div.appendChild(delbutton);
+  //inconp-listにdiv追加
+  document.getElementById("inconp-list").appendChild(div);
+};
+
+//完了リストに追加
+const addcomplist = (name) => {
+  //divの作成
+  const div = document.createElement("div");
+  div.className = "list-row";
+  //li の作成
+  const li = document.createElement("li");
+  li.innerText = name;
+  //button(戻す)  の作成
+  const backbutton = document.createElement("button");
+  backbutton.innerText = "戻す";
+  backbutton.addEventListener("click", () => {
+    const addtaeget = backbutton.parentNode; //取得
+    //完了から親のdivを削除する
+    deldicfromcomplist(addtaeget); //関数で削除
+    //追加するテキストを親から取得
+    const addtargettext = addtaeget.firstElementChild.innerText;
+    //conp-listに追加する
+    addincomplist(addtargettext);
+  });
+  //divの子要素にli,button
+  div.appendChild(li);
+  div.appendChild(backbutton);
+  //conp-listにdiv追加
+  document.getElementById("conp-list").appendChild(div);
+};
+// document.getElementById("app").innerHTML = `
+// <h1>Hello Vanilla!</h1>
+// <div>
+//   We use the same configuration as Parcel to bundle this sandbox, you can find more
+//   info about Parcel
+//   <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
+//   JSからも変更できる。
+// </div>
+// `;
 let v = "1";
 const var1 = "aaaa";
 console.log(var1);
